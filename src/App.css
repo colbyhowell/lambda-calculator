@@ -1,0 +1,17 @@
+.container{
+    background-color: #bb1333;
+    padding: 15px;
+    width: 450px;
+    height: 600px;
+    border: 2px solid grey;
+    border-radius: 15px;
+}
+
+.inputField{
+    background-color: #2d2829;
+    margin: 20px;
+    height: 60px;
+    color: white;
+    text-align: right;
+    font-size: 40px;
+}
