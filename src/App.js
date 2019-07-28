@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 import Numbers from '../src/components/ButtonComponents/NumberButtons/Numbers'
@@ -25,10 +25,16 @@ function App() {
       <Logo />
       <div className="inputField">0</div>
       <div className="App">
-        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}<Specials specials={specials} />
-        <Operators operators={operators} />
-        <Numbers numbers={numbers} />
-
+        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+        <div className="flexAll">
+          <div className="numSpecial">
+              <Specials specials={specials} />
+              <Numbers numbers={numbers} />
+          </div>
+          <div className='operatorFlex'>
+            <Operators operators={operators} />
+          </div>
+        </div>
       </div>
     </div>
   );
