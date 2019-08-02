@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.scss";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 import Numbers from '../src/components/ButtonComponents/NumberButtons/Numbers'
 import Operators from '../src/components/ButtonComponents/OperatorButtons/Operators'
 import Specials from '../src/components/ButtonComponents/SpecialButtons/Specials'
+import Display from './components/DisplayComponents/Display'
 
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
@@ -20,16 +21,29 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
+  const [displayNumber, setDisplayNumber] = useState(0)
+
+  const numberAll = (el) =>{
+    displayNumber === 0 ? setDisplayNumber(el):
+    setDisplayNumber(displayNumber+el)
+  }
+
+  console.log(displayNumber)
   return (
     <div className="container">
       <Logo />
-      <div className="inputField">0</div>
+      <div className="inputField">
+        <Display displayNumber={displayNumber} />
+      </div>
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <div className="flexAll">
           <div className="numSpecial">
               <Specials specials={specials} />
-              <Numbers numbers={numbers} />
+              <Numbers numbers={numbers}
+              setDisplayNumber={setDisplayNumber}
+              displayNumber={displayNumber}
+              numberAll={numberAll} />
           </div>
           <div className='operatorFlex'>
             <Operators operators={operators} />
